@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta Romántica Interactiva</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #fce4ec;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('URL_DE_LA_IMAGEN_FONDO_ROSA');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: -1;
+    }
+    .sobre {
+      width: 300px;
+      height: 200px;
+      background-color: #ff8a80;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      transition: transform 1s;
+    }
+    .sobre.abierto .tapa {
+      animation: deslizarIzquierda 1s forwards;
+    }
+    .sobre.abierto .contenido {
+      animation: deslizarDerecha 1s forwards;
+    }
+    .sobre.oculto {
+      display: none;
+    }
+    .tapa {
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(135deg, #ff5252, #ff8a80);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 24px;
+    }
+    .contenido {
+      width: 50%;
+      height: 100%;
+      background-color: #fce4ec;
+      color: #ff5252;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .papel {
+      display: none;
+      width: 80vw; /* Aumentar el ancho para que cubra más espacio horizontal */
+      max-width: 600px; /* Establecer un ancho máximo para no desbordar */
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      color: #424242;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      font-size: 18px;
+      position: relative;
+      animation: desplegar 1s ease-out forwards;
+      max-height: 70vh; /* Altura máxima para permitir el desplazamiento */
+      overflow-y: auto; /* Permitir desplazamiento vertical */
+    }
+    @keyframes desplegar {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes deslizarIzquierda {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100%); }
+    }
+    @keyframes deslizarDerecha {
+      from { transform: translateX(0); }
+      to { transform: translateX(100%); }
+    }
+    .imagenes {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      animation: aparecer 1s ease-out forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    @keyframes aparecer {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .firework {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0;
+      animation: explosion 1s forwards;
+    }
+    @keyframes explosion {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="sobre" onclick="abrirCarta()">
+  <div class="tapa">Te Amo</div>
+  <div class="contenido">Abre para leer</div>
+</div>
+
+<div class="papel" id="papel">
+  <p id="mensaje">Querida Blanca Tomasa Flores Bañaga,<br><br>
+
+Quiero tomar un momento para expresarte lo importante que ha sido en mi vida. No deseo que lo que hemos creado juntos termine tan pronto. Me gustaría que tú y yo, como hombre y mujer, cultivemos un amor sincero, y que esta relación se convierta en una de las experiencias más maravillosas que el destino nos ha ofrecido.<br><br>
+
+Puede que nuestra historia no sea muy larga, o quizás sí, pero apreciaré cada instante y cada circunstancia que compartamos. Soy consciente de nuestras diferencias y de cómo la edad puede influir en nuestra manera de pensar y en los pequeños detalles de nuestra vida. Sin embargo, siento que el amor que existe entre nosotros es verdaderamente único. La manera en que nos tratamos, aunque pueda parecer peculiar a otros, es nuestra, y eso la hace especial.<br><br>
+
+Te pido que te quedes a mi lado no solo por un tiempo, sino que anhelo que compartas una parte de mi vida, por más pequeña que sea. Quiero que cada decisión que tome al estar contigo se convierta en un motivo de alegría y no de arrepentimiento. Anhelo que tú seas una de esas decisiones más significativas y hermosas que guardaré en mi corazón, porque sé que eres la persona que he estado buscando.<br><br>
+
+No te ofrezco riqueza ni promesas materiales; en su lugar, te ofrezco la sinceridad de mis sentimientos y la entrega de mi corazón. Mi amor por ti no se mide en posesiones, sino en la profundidad de lo que siento y en el deseo de compartir mi vida contigo. Espero que esto sea suficiente para ti, porque lo único que realmente importa es que te amo con toda mi alma.<br><br>
+
+Prometo estar a tu lado en los buenos y malos momentos, apoyarte en tus sueños y ser tu compañero en cada paso del camino. Quiero construir juntos recuerdos que atesoremos para siempre, reír, soñar y amarnos sin reservas.<br><br>
+
+Con cariño,<br>
+Jimmy Ángel Gabriel Ventura González</p>
+  <div class="imagenes" id="imagenes">
+    <img id="imagen1" src="pachas.avif" alt="Imagen 1" style="width: 100px; height: auto;">
+    <img id="imagen2" src="fonfo 1.avif" alt="Imagen 2" style="width: 100px; height: auto;">
+  </div>
+</div>
+
+<audio id="musica" src="perfect.mp3" loop></audio>
+
+<script>
+  function abrirCarta() {
+    const sobre = document.querySelector('.sobre');
+    sobre.classList.toggle('abierto');
+    
+    setTimeout(() => {
+      sobre.classList.add('oculto');
+      document.getElementById('papel').style.display = 'block';
+      const imagenes = document.getElementById('imagenes');
+      imagenes.style.opacity = '1';
+      document.getElementById('musica').play();
+    }, 1000);
+  }
+
+  function crearFuegos() {
+    const container = document.body;
+    const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+
+    for (let i = 0; i < 10; i++) {
+      const firework = document.createElement('div');
+      firework.classList.add('firework');
+      firework.style.width = Math.random() * 50 + 20 + 'px';
+      firework.style.height = firework.style.width;
+      firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      firework.style.left = Math.random() * window.innerWidth + 'px';
+      firework.style.bottom = '0';
+      container.appendChild(firework);
+      setTimeout(() => {
+        firework.style.animation = `explosion 1s forwards`;
+        firework.style.bottom = Math.random() * 100 + 100 + 'px';
+      }, 50 * i);
+      setTimeout(() => {
+        firework.remove();
+      }, 1000);
+    }
+  }
+
+  window.onload = function() {
+    setInterval(crearFuegos, 2000);
+  };
+</script>
+
+</body>
+</html>
